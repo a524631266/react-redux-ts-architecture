@@ -5,7 +5,7 @@ import {decrementEnthusiam,EnthusiasmAction,incrementEnthusiam} from '../../acti
 
 import { Hello,IPropsActions,IPropsConstants } from "../../components/Hello/Hello";
 import { IStoreState } from "../../types/index";
-const count = 2;
+// const count = 2;
 export function mapStateToProps(state:IStoreState):IPropsConstants{
     const {enthusiasmLevel,languagename} = state
     return {
@@ -16,8 +16,8 @@ export function mapStateToProps(state:IStoreState):IPropsConstants{
 
 export function mapDispatchToProps(dispatch:Dispatch<EnthusiasmAction>):IPropsActions{
     return {
-        onDecrement:()=>dispatch(decrementEnthusiam(count)),
-        onIncrement:()=>dispatch(incrementEnthusiam(count)),
+        onDecrement:(count)=>dispatch(decrementEnthusiam(count)),
+        onIncrement:(count)=>dispatch(incrementEnthusiam(count)),
     }
 }
 

@@ -10,8 +10,8 @@ export interface IPropsConstants{
 }
 
 export interface IPropsActions{
-    onIncrement?:()=>void;
-    onDecrement?:()=>void;
+    onIncrement:(count:number)=>void;
+    onDecrement:(count:number)=>void;
 }
 
 interface IProps extends IPropsChildren,IPropsConstants,IPropsActions{
@@ -34,15 +34,21 @@ export class Hello extends React.Component<IProps, IState> {
             data:"1"
         }
     }
-
+    // private handleDecrement = (e:any)=>{
+    //     this.props.onDecrement(count)
+    // }
     public render() {
         const {name,enthusiasmLevel=0,onDecrement,onIncrement} = this.props
+        const count =1 ;
+        const count2 = 2;
+        const dec:(event:any)=>void= (even:any)=>{onDecrement(count)}
+        const inc:(event:any)=>void= (even:any)=>{onIncrement(count2)}
         return (
             <div>
                 {`Hello ${name}  ${getExclamationMarks(enthusiasmLevel)}`}
-            { this.props.children }
-                <button onClick={onDecrement}>-</button>
-                <button onClick={onIncrement}>+</button>
+                { this.props.children }
+                <button onClick={dec}>-</button>
+                <button onClick={inc}>+</button>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 
 import {enthusiasmReduer} from "../../reducers/index"
+// import {} from 'redux-thunk'
 // import {IStoreState} from "../../types/index"
 // <IStoreState,>
 export const store = createStore(
